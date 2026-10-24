@@ -1,0 +1,176 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 3,
+    "pending": 0,
+    "failures": 0,
+    "start": "2026-10-24T09:44:55.029Z",
+    "end": "2026-10-24T09:44:58.726Z",
+    "duration": 3697,
+    "testsRegistered": 3,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0af2d4f4-4ce7-46b8-a220-f7d6faa90c14",
+      "title": "",
+      "fullFile": "C:\\AMIR\\BOOTCAMP QA DIGITAL SKOLA\\TUGAS\\Sesi8-Web UI Automation\\test\\login.js",
+      "file": "\\test\\login.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8079734b-101b-45b8-891f-65fe73e9d8f5",
+          "title": "Tugas Sesi 8 Muhammad Amir Naufal Pandia",
+          "fullFile": "C:\\AMIR\\BOOTCAMP QA DIGITAL SKOLA\\TUGAS\\Sesi8-Web UI Automation\\test\\login.js",
+          "file": "\\test\\login.js",
+          "beforeHooks": [
+            {
+              "title": "\"before all\" hook in \"Tugas Sesi 8 Muhammad Amir Naufal Pandia\"",
+              "fullTitle": "Tugas Sesi 8 Muhammad Amir Naufal Pandia \"before all\" hook in \"Tugas Sesi 8 Muhammad Amir Naufal Pandia\"",
+              "timedOut": false,
+              "duration": 404,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let options = new chrome.Options();\noptions.addArguments(\"--disable-features=PasswordLeakDetection\");\noptions.setUserPreferences({\n    \"credentials_enable_service\": false,\n    \"profile.password_manager_enabled\": false,\n    \"profile.password_manager_leak_detection\": false\n});\ndriver = await new Builder()\n    .forBrowser(\"chrome\")\n    .setChromeOptions(options)\n    .build();",
+              "err": {},
+              "uuid": "db7812b8-0883-43f6-ad5c-94c1e0f2a8ca",
+              "parentUUID": "8079734b-101b-45b8-891f-65fe73e9d8f5",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "afterHooks": [
+            {
+              "title": "\"after all\" hook in \"Tugas Sesi 8 Muhammad Amir Naufal Pandia\"",
+              "fullTitle": "Tugas Sesi 8 Muhammad Amir Naufal Pandia \"after all\" hook in \"Tugas Sesi 8 Muhammad Amir Naufal Pandia\"",
+              "timedOut": false,
+              "duration": 32,
+              "state": null,
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "if (driver) {\n    await driver.quit();\n}",
+              "err": {},
+              "uuid": "d81d4169-a5d3-406a-824d-41d1712fda40",
+              "parentUUID": "8079734b-101b-45b8-891f-65fe73e9d8f5",
+              "isHook": true,
+              "skipped": false
+            }
+          ],
+          "tests": [
+            {
+              "title": "Should login",
+              "fullTitle": "Tugas Sesi 8 Muhammad Amir Naufal Pandia Should login",
+              "timedOut": false,
+              "duration": 2434,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "await driver.get(\"https://belajar-bareng.onrender.com\");\nlet usernameInput = await driver.findElement(\n    By.xpath('//*[@id=\"loginOverlay\"]/div/form/input')\n);\nlet passwordInput = await driver.findElement(\n    By.xpath('//*[@id=\"loginOverlay\"]/div/form/div/input')\n);\nlet loginButton = await driver.findElement(\n    By.xpath('//*[@id=\"loginOverlay\"]/div/form/button')\n);\nawait usernameInput.sendKeys(\"admin\");\nawait passwordInput.sendKeys(\"admin\");\nawait loginButton.click();\nlet addUser = await driver.wait(\n    until.elementLocated(By.xpath('//*[@id=\"app\"]/div/div/div/div/button[1]')),\n    10000\n);\nassert.strictEqual(await addUser.isDisplayed(), true);\nlet updateUser = await driver.wait(\n    until.elementLocated(By.xpath('//*[@id=\"app\"]/div/div/div/div/button[2]')),\n    10000\n);\nassert.strictEqual(await updateUser.isDisplayed(), true);\nlet deleteUser = await driver.wait(\n    until.elementLocated(By.xpath('//*[@id=\"app\"]/div/div/div/div/button[3]')),\n    10000\n);\nassert.strictEqual(await deleteUser.isDisplayed(), true);",
+              "err": {},
+              "uuid": "3340cf95-fdc3-46e7-8a09-b088521be7ba",
+              "parentUUID": "8079734b-101b-45b8-891f-65fe73e9d8f5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should Click AddUser Button",
+              "fullTitle": "Tugas Sesi 8 Muhammad Amir Naufal Pandia Should Click AddUser Button",
+              "timedOut": false,
+              "duration": 74,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let addUserButton = await driver.findElement(\n    By.xpath('//*[@id=\"app\"]/div/div/div/div/button[1]')\n);\nawait addUserButton.click();\nlet listUserButton = await driver.wait(\n    until.elementLocated(By.xpath('//*[@id=\"app\"]/div/div/div[2]/button[1]')),\n    10000\n);\nassert.strictEqual(await listUserButton.isDisplayed(), true);\nlet listUpdateButton = await driver.wait(\n    until.elementLocated(By.xpath('//*[@id=\"app\"]/div/div/div[2]/button[2]')),\n    10000\n);\nassert.strictEqual(await listUpdateButton.isDisplayed(), true);\nlet deleteUserButton = await driver.wait(\n    until.elementLocated(By.xpath('//*[@id=\"app\"]/div/div/div[2]/button[3]')),\n    10000\n);\nassert.strictEqual(await deleteUserButton.isDisplayed(), true);",
+              "err": {},
+              "uuid": "f45bb8ac-24f6-4d0a-8303-d2661f62e370",
+              "parentUUID": "8079734b-101b-45b8-891f-65fe73e9d8f5",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Should add a user",
+              "fullTitle": "Tugas Sesi 8 Muhammad Amir Naufal Pandia Should add a user",
+              "timedOut": false,
+              "duration": 744,
+              "state": "passed",
+              "speed": "slow",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "let userInput = await driver.findElement(\n    By.xpath('//*[@id=\"app\"]/div/div/form/input[1]')\n);\nlet ageInput = await driver.findElement(\n    By.xpath('//*[@id=\"app\"]/div/div/form/input[2]')\n);\nlet submitButton = await driver.findElement(\n    By.xpath('//*[@id=\"app\"]/div/div/form/button')\n);\nlet userName = \"Amir\"\nawait userInput.sendKeys(userName);\nawait ageInput.sendKeys(\"22\");\nawait submitButton.click();\nlet popup = await driver.wait(\nuntil.elementLocated(By.xpath('//*[@id=\"success-added\"]/div[1]/div[2]')),\n10000);\nlet popupText = await popup.getText();\n\nassert.strictEqual(popupText, popupText);",
+              "err": {},
+              "uuid": "524adeb2-18e8-4682-a5d2-c853eb99a91b",
+              "parentUUID": "8079734b-101b-45b8-891f-65fe73e9d8f5",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "3340cf95-fdc3-46e7-8a09-b088521be7ba",
+            "f45bb8ac-24f6-4d0a-8303-d2661f62e370",
+            "524adeb2-18e8-4682-a5d2-c853eb99a91b"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 3252,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 10000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 10000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "12.0.3"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": true,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "8.1.1"
+    },
+    "marge": {
+      "options": null,
+      "version": "6.3.2"
+    }
+  }
+}
